@@ -17,6 +17,7 @@ Game::~Game()
 	delete window;
 }
 
+
 //Functions 
 void Game::updateSFMLEvents()
 {
@@ -27,6 +28,14 @@ void Game::updateSFMLEvents()
 		}
 	}
 }
+
+void Game::updateDeltaTime()
+{
+	//update and render one frame
+	deltaTime = dtClock.getElapsedTime().asSeconds();
+
+}
+
 
 void Game::update()
 {
@@ -44,6 +53,7 @@ void Game::render()
 void Game::run()
 {
 	while (window->isOpen()) {
+		updateDeltaTime();
 		update();
 		render();
 	}
