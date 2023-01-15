@@ -1,14 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <iostream>
-#include <ctime>
-
-#include  <SFML/System.hpp>
-#include  <SFML/Graphics.hpp>
-#include  <SFML/Window.hpp>
-#include  <SFML/Audio.hpp>
-#include  <SFML/Network.hpp>
+#include "GameState.h"
 
 class Game {
 private:
@@ -19,8 +12,11 @@ private:
 	sf::Clock dtClock;
 	float deltaTime;
 
+	std::stack<State*> states;
+
 	//Initialization
 	void initWindow();
+	void initStates();
 
 public:
 	Game();

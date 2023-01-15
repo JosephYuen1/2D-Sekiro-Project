@@ -6,15 +6,25 @@ void Game::initWindow()
 	window = new sf::RenderWindow(sf::VideoMode(800, 600), "Sukiro SFML");
 }
 
+void Game::initStates()
+{
+	states.push(new GameState(window));
+}
+
 //Constructor/Destructor
 Game::Game()
 {
 	initWindow();
+	initStates();
 }
 
 Game::~Game()
 {
 	delete window;
+	while (!states.empty()) {
+		delete states.top();
+		states.pop();		
+	}
 }
 
 
@@ -40,6 +50,9 @@ void Game::updateDeltaTime()
 void Game::update()
 {
 	updateSFMLEvents();
+	if (!states.empty()) {
+		states.top()->update(deltaTime);
+	}
 }
 
 void Game::render()
@@ -47,6 +60,9 @@ void Game::render()
 	window->clear();
 
 	//Render items 
+	if (!states.empty()) {
+		states.top()->render();
+	}
 	window->display();
 }
 
