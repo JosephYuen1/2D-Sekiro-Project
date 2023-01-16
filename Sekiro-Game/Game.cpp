@@ -39,6 +39,11 @@ void Game::updateSFMLEvents()
 	}
 }
 
+void Game::endApplication()
+{
+	std::cout << "Ending application\n";
+}
+
 void Game::updateDeltaTime()
 {
 	//update and render one frame
@@ -52,6 +57,18 @@ void Game::update()
 	updateSFMLEvents();
 	if (!states.empty()) {
 		states.top()->update(deltaTime);
+
+		if (states.top()->getQuit()) {
+			states.top()->endState();
+			delete states.top();
+			states.pop();
+		}
+	}
+
+	//Ending the application
+	else {
+		endApplication();
+		window->close();	
 	}
 }
 

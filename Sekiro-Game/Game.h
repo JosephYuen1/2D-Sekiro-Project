@@ -23,6 +23,7 @@ public:
 	virtual ~Game();
 
 	//Functions 
+	void endApplication();
 	void updateDeltaTime();
 	void updateSFMLEvents();
 	void update();

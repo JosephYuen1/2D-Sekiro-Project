@@ -11,7 +11,7 @@ public:
 	virtual ~GameState();
 
 	//Functions 
-	void endState();
+	void updateKeyBinds(const float& deltaTime);
 	void update(const float& deltaTime);
 	void render(sf::RenderTarget* target = nullptr);
 };
