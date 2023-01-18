@@ -1,22 +1,14 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <iostream>
-#include <ctime>
-#include <stack>
-#include <map>
-#include <vector>
-
-#include  <SFML/System.hpp>
-#include  <SFML/Graphics.hpp>
-#include  <SFML/Window.hpp>
-#include  <SFML/Audio.hpp>
-#include  <SFML/Network.hpp>
+#include "Entity.h"
 
 //Managing resources
 class State
 {
 private:
+
+protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> texture;
 	bool quit;
@@ -27,7 +19,7 @@ public:
 	
 	//Overriding
 	virtual void endState();
-	virtual void updateKeyBinds(const float& deltaTime) = 0;
+	virtual void updateInput(const float& deltaTime) = 0;
 	virtual void checkForQuit();
 	virtual void update(const float& deltaTime) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
