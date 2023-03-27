@@ -2,14 +2,17 @@
 #define MAINMENUSTATE_H
 
 #include "GameState.h"
+#include "Button.h"
 
 class MainMenuState : public State
 {
 private:
 	//Variables
 	sf::RectangleShape background;
+	sf::Font font;
 
 	//functions 
+	void initFonts();
 	void initKeyBinds();
 
 public:

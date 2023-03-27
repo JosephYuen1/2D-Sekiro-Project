@@ -21,6 +21,13 @@ void State::endState()
 	std::cout << "Ending game state\n";
 }
 
+void State::updateMousePosition()
+{
+	mousePosScreen = sf::Mouse::getPosition();
+	mousePosWindow = sf::Mouse::getPosition(*window);
+	mousePosView = window-> mapPixelToCoords(sf::Mouse::getPosition());
+}
+
 void State::checkForQuit()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
