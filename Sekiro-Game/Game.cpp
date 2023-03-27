@@ -13,12 +13,11 @@ void Game::initKeys()
 	supportedKeys.emplace("D", sf::Keyboard::Key::D);
 	supportedKeys.emplace("W", sf::Keyboard::Key::W);
 	supportedKeys.emplace("S", sf::Keyboard::Key::S);
-	std::cout << supportedKeys.at("A") << "\n";
-
 }
 
 void Game::initStates()
 {
+	//states.push(new MainMenuState(window, &supportedKeys));
 	states.push(new GameState(window, &supportedKeys));
 }
 

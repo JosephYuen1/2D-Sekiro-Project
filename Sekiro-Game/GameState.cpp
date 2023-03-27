@@ -15,14 +15,14 @@ GameState::GameState(sf::RenderWindow* window ,std::map<std::string, int>* suppo
 
 GameState::~GameState()
 {
+	std::cout << "Ending game state! " << "\n"; 
 }
 
 void GameState::updateInput(const float& deltaTime)
 {
 	checkForQuit();
-	//update player input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("MOVE_LEFT")))) {
-		player.move(deltaTime,-1.0f, 0.0f);
+		player.move(deltaTime, -1.0f, 0.0f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("MOVE_RIGHT")))) {
 		player.move(deltaTime, 1.0f, 0.0f);
@@ -48,5 +48,4 @@ void GameState::render(sf::RenderTarget* target)
 		target = window;
 		player.render(target);
 	}
-
 }
