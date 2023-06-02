@@ -11,19 +11,23 @@ private:
 	sf::RectangleShape background;
 	sf::Font font;
 
-	Button *b_gameState;
+	std::map<std::string, Button*> buttons;
 
 	//functions 
 	void initFonts();
 	void initKeyBinds();
+	void initButtons();
 
 public:
-	MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys);
+	MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states);
 	virtual ~MainMenuState();
 
-	//Functions 
+	//Functions
+	void endState();
 	void updateInput(const float& deltaTime);
+	void updateButtons();
 	void update(const float& deltaTime);
+	void renderButtons(sf::RenderTarget* target = nullptr);
 	void render(sf::RenderTarget* target = nullptr);
 };
 
