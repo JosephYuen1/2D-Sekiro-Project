@@ -6,6 +6,7 @@ void GameState::initKeyBinds()
 	keyBinds.emplace("MOVE_RIGHT", supportedKeys->at("D"));
 	keyBinds.emplace("MOVE_UP", supportedKeys->at("W"));
 	keyBinds.emplace("MOVE_DOWN", supportedKeys->at("S"));
+	keyBinds.emplace("ESCAPE", supportedKeys->at("Escape"));
 }
 
 GameState::GameState(sf::RenderWindow* window ,std::map<std::string, int>* supportedKeys, std::stack<State*>* states) : 
@@ -34,8 +35,7 @@ void GameState::updateInput(const float& deltaTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("MOVE_DOWN")))) {
 		player.move(deltaTime, 0.0f, 1.0f);
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("CLOSE")))) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("ESCAPE")))) {
 		quit = true;
 	}
 }

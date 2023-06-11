@@ -8,17 +8,17 @@ void Game::initWindow()
 
 void Game::initKeys()
 {
-	supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
 	supportedKeys.emplace("A", sf::Keyboard::Key::A);
 	supportedKeys.emplace("D", sf::Keyboard::Key::D);
 	supportedKeys.emplace("W", sf::Keyboard::Key::W);
 	supportedKeys.emplace("S", sf::Keyboard::Key::S);
+	supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
+	
 }
 
 void Game::initStates()
 {
 	states.push(new MainMenuState(window, &supportedKeys, &states));
-	//states.push(new GameState(window, &supportedKeys, &states));
 }
 
 //Constructor/Destructor

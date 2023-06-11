@@ -13,7 +13,7 @@ private:
 	float deltaTime;
 
 	std::stack<State*> states;
-	std::map< std::string, int> supportedKeys;
+	std::map<std::string, int> supportedKeys;
 
 	//Initialization
 	void initWindow();

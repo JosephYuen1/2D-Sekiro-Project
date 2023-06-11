@@ -62,7 +62,7 @@ void MainMenuState::updateButtons()
 	}
 
 	if (buttons["GAME_STATE"]->isPressed()) {
-		states->push(new MainMenuState(window, supportedKeys, states));
+		states->push(new GameState(window, supportedKeys, states));
 		printf("This is starting new game state\n");
 	}
 
