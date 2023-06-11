@@ -26,13 +26,8 @@ void State::updateMousePosition()
 {
 	mousePosScreen = sf::Mouse::getPosition();
 	mousePosWindow = sf::Mouse::getPosition(*window);
-	mousePosView = window-> mapPixelToCoords(sf::Mouse::getPosition());
+	mousePosView = window-> mapPixelToCoords(sf::Mouse::getPosition(*window));
 }
 
-void State::checkForQuit()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-		quit = true;
-	}
-}
+
 

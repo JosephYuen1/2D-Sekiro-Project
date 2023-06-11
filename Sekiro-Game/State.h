@@ -34,7 +34,6 @@ public:
 	virtual void endState();
 	virtual void updateMousePosition();
 	virtual void updateInput(const float& deltaTime) = 0;
-	virtual void checkForQuit();
 	virtual void update(const float& deltaTime) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
 };

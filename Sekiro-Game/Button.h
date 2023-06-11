@@ -13,7 +13,7 @@
 enum button_states {
 	b_idle = 0,
 	b_hovered,
-	b_pressed
+	b_active
 
 };
 class Button
@@ -27,7 +27,7 @@ private:
 
 	sf::Color idleColour;
 	sf::Color hoverColour;
-	sf::Color pressedColour;
+	sf::Color activeColour;
 
 public:
 	Button(float x, float y, float width, float height,
@@ -39,7 +39,7 @@ public:
 	const bool isPressed();
 
 	//Functions
-	void update(const sf::Vector2f mousePos);
+	void update(const sf::Vector2f mousePosWindow);
 	void render(sf::RenderTarget* target);
 
 };

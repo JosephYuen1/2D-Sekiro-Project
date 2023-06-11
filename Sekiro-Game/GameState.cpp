@@ -21,7 +21,7 @@ GameState::~GameState()
 
 void GameState::updateInput(const float& deltaTime)
 {
-	checkForQuit();
+	//checkForQuit();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("MOVE_LEFT")))) {
 		player.move(deltaTime, -1.0f, 0.0f);
 	}
@@ -33,6 +33,10 @@ void GameState::updateInput(const float& deltaTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("MOVE_DOWN")))) {
 		player.move(deltaTime, 0.0f, 1.0f);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(keyBinds.at("CLOSE")))) {
+		quit = true;
 	}
 }
 

@@ -2,7 +2,7 @@
 
 void MainMenuState::initFonts()
 {
-	if (!this->font.loadFromFile("Fonts/Dosis-Light.ttf")){
+	if (!font.loadFromFile("Fonts/Dosis-Light.ttf")){
 		throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
 	}
 }
@@ -14,12 +14,12 @@ void MainMenuState::initKeyBinds()
 
 void MainMenuState::initButtons()
 {
-	buttons["GAME_STATE"] = new Button(200, 100, 150, 50, &font, "New Game",
+	buttons["GAME_STATE"] = new Button(200, 200, 150, 50, &font, "New Game",
 		sf::Color(0, 150, 0, 200),
 		sf::Color(255, 165, 150, 255),
 		sf::Color(20, 20, 20, 200));
 
-	buttons["EXIT_STATE"] = new Button(200, 300, 150, 50, &font, "Quit",
+	buttons["EXIT_STATE"] = new Button(200, 500, 150, 50, &font, "Quit",
 		sf::Color(0, 150, 0, 200),
 		sf::Color(255, 165, 150, 255),
 		sf::Color(20, 20, 20, 200));
@@ -50,7 +50,7 @@ void MainMenuState::endState()
 }
 void MainMenuState::updateInput(const float& deltaTime)
 {
-	checkForQuit();
+	//checkForQuit();
 	
 }
 
@@ -63,10 +63,12 @@ void MainMenuState::updateButtons()
 
 	if (buttons["GAME_STATE"]->isPressed()) {
 		states->push(new MainMenuState(window, supportedKeys, states));
+		printf("This is starting new game state\n");
 	}
 
 	//quit the game
 	if (buttons["EXIT_STATE"]->isPressed()) {
+		printf("This is ending the state\n");
 		quit = true;
 	}
 }
