@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "Entity.h"
+#include "Player.h"
 
 //Managing resources
 class State
@@ -21,7 +21,7 @@ protected:
 	sf::Vector2f mousePosView;
 
 	//resources
-	std::vector<sf::Texture> texture;
+	std::map<std::string, sf::Texture> texture;
 
 	//functions 
 	virtual void initKeyBinds() = 0;
@@ -31,7 +31,7 @@ public:
 	const bool& getQuit() const;
 	
 	//Overriding
-	virtual void endState();
+	void endState();
 	virtual void updateMousePosition();
 	virtual void updateInput(const float& deltaTime) = 0;
 	virtual void update(const float& deltaTime) = 0;

@@ -19,7 +19,8 @@ const bool & State::getQuit() const
 
 void State::endState()
 {
-	std::cout << "Ending game state\n";
+	//std::cout << "Ending game state\n";
+	quit = true;
 }
 
 void State::updateMousePosition()

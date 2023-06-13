@@ -23,7 +23,6 @@ public:
 	virtual ~MainMenuState();
 
 	//Functions
-	void endState();
 	void updateInput(const float& deltaTime);
 	void updateButtons();
 	void update(const float& deltaTime);

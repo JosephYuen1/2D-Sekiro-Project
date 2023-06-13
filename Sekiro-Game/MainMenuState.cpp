@@ -43,11 +43,7 @@ MainMenuState::~MainMenuState()
 		delete it->second;
 	}
 }
-void MainMenuState::endState()
-{
-	std::cout << "Ending MainMenuState!" << "\n";
 
-}
 void MainMenuState::updateInput(const float& deltaTime)
 {
 	//checkForQuit();
@@ -69,7 +65,7 @@ void MainMenuState::updateButtons()
 	//quit the game
 	if (buttons["EXIT_STATE"]->isPressed()) {
 		printf("This is ending the state\n");
-		quit = true;
+		endState();
 	}
 }
 
