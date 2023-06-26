@@ -19,6 +19,9 @@
     <Filter Include="States">
       <UniqueIdentifier>{ac873bf9-81ac-47b9-9253-94b5d1ef7a4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componets">
+      <UniqueIdentifier>{a976f1f3-cafb-4ea9-adba-b80eebc03846}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Componets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Componets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ void Entity::initVariables()
 {
 	sprite = NULL;
 	texture = NULL;
-	movementSpeed = 1.0f;
+	movementComponent = NULL;
 }
 
 Entity::Entity()
@@ -25,6 +25,11 @@ void Entity::createSprite(sf::Texture* texture)
 	sprite = new sf::Sprite(*this->texture);
 }
 
+void Entity::createMovementComponent(const float maxVelocity)
+{
+	movementComponent = new MovementComponent(maxVelocity);
+}
+
 void Entity::setPosition(const float x, const float y)
 {
 	if (sprite) {
@@ -35,8 +40,12 @@ void Entity::setPosition(const float x, const float y)
 void Entity::move(const float& deltaTime, const float dir_x, const float dir_y)
 {
 	//if the sprite is the right one the move it 
-	if (sprite) {
-		sprite->move(dir_x * movementSpeed, dir_y * movementSpeed);
+	if (sprite && movementComponent) {
+		//sets velocity 
+		movementComponent->move(dir_x, dir_y);
+
+		//uses velocity
+		sprite->move(movementComponent->getVelocity()*deltaTime);
 	}
 }
 
