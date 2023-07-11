@@ -9,8 +9,7 @@ private:
 	void initVariables();
 
 protected:
-	sf::Texture* texture;
-	sf::Sprite* sprite;
+	sf::Sprite sprite;
 
 	//sf::RectangleShape shape;
 	MovementComponent* movementComponent;
@@ -19,7 +18,7 @@ public:
 	virtual ~Entity();
 
 	//component functions 
-	void createSprite(sf::Texture* texture);
+	void setTexture(sf::Texture& texture);
 	void createMovementComponent(const float maxVelocity);
 
 	//Functions
